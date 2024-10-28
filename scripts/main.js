@@ -106,6 +106,7 @@ function displayCardsDynamically(collection) {
                 var hikeCode = doc.data().code; //get unique ID to each hike to be used for fetching right image
                 var hikeLength = doc.data().length; //gets the length field
                 let newcard = cardTemplate.content.cloneNode(true); // Clone the HTML template to create a new card (newcard) that will be filled with Firestore data.
+                var docID = doc.id;
 
                 //update title and text and image
                 newcard.querySelector(".card-title").innerHTML = title;
@@ -115,6 +116,7 @@ function displayCardsDynamically(collection) {
                 newcard.querySelector(
                     ".card-image"
                 ).src = `./images/${hikeCode}.jpg`; //Example: NV01.jpg
+                newcard.querySelector('a').href = "eachHike.html?docID="+docID;    
 
                 //Optional: give unique ids to all elements for future use
                 // newcard.querySelector('.card-title').setAttribute("id", "ctitle" + i);
@@ -128,7 +130,9 @@ function displayCardsDynamically(collection) {
 
                 //i++;   //Optional: iterate variable to serve as unique ID
             });
+        
         });
+
 }
 
 displayCardsDynamically("hikes"); //input param is the name of the collection
