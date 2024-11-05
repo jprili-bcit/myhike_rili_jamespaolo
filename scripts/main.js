@@ -25,8 +25,7 @@ function getNameFromAuth() {
 // Function to read the quote of the day from the Firestore "quotes" collection
 // Input param is the String representing the day of the week, aka, the document name
 function readQuote(day) {
-    db.collection("quotes")
-        .doc(day) //name of the collection and documents should matach excatly with what you have in Firestore
+    db.doc(`quotes/${day}`) //name of the collection and documents should matach excatly with what you have in Firestore
         .onSnapshot((dayDoc) => {
             //arrow notation
             console.log("current document data: " + dayDoc.data()); //.data() returns data object
