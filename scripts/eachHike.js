@@ -51,7 +51,7 @@ function populateReviews() {
                 var scrambled = doc.data().scrambled;
                 var time = doc.data().timestamp.toDate();
                 var rating = doc.data().rating; // Get the rating value
-                console.log(rating)
+                console.log(rating);
 
                 console.log(time);
 
@@ -60,23 +60,34 @@ function populateReviews() {
                 reviewCard.querySelector(".time").innerHTML = new Date(
                     time
                 ).toLocaleString();
-                reviewCard.querySelector(".level").innerHTML = `Level: ${level}`;
-                reviewCard.querySelector(".season").innerHTML = `Season: ${season}`;
-                reviewCard.querySelector(".scrambled").innerHTML = `Scrambled: ${scrambled}`;
-                reviewCard.querySelector(".flooded").innerHTML = `Flooded: ${flooded}`;
-                reviewCard.querySelector( ".description").innerHTML = `Description: ${description}`;
+                reviewCard.querySelector(
+                    ".level"
+                ).innerHTML = `Level: ${level}`;
+                reviewCard.querySelector(
+                    ".season"
+                ).innerHTML = `Season: ${season}`;
+                reviewCard.querySelector(
+                    ".scrambled"
+                ).innerHTML = `Scrambled: ${scrambled}`;
+                reviewCard.querySelector(
+                    ".flooded"
+                ).innerHTML = `Flooded: ${flooded}`;
+                reviewCard.querySelector(
+                    ".description"
+                ).innerHTML = `Description: ${description}`;
 
                 // Populate the star rating based on the rating value
-                
-	              // Initialize an empty string to store the star rating HTML
-								let starRating = "";
-								// This loop runs from i=0 to i<rating, where 'rating' is a variable holding the rating value.
+
+                // Initialize an empty string to store the star rating HTML
+                let starRating = "";
+                // This loop runs from i=0 to i<rating, where 'rating' is a variable holding the rating value.
                 for (let i = 0; i < rating; i++) {
                     starRating += '<span class="material-icons">star</span>';
                 }
-								// After the first loop, this second loop runs from i=rating to i<5.
+                // After the first loop, this second loop runs from i=rating to i<5.
                 for (let i = rating; i < 5; i++) {
-                    starRating += '<span class="material-icons">star_outline</span>';
+                    starRating +=
+                        '<span class="material-icons">star_outline</span>';
                 }
                 reviewCard.querySelector(".star-rating").innerHTML = starRating;
 
