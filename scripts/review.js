@@ -15,16 +15,19 @@ getHikeName(hikeDocID);
 // Add this JavaScript code to make stars clickable
 
 // Select all elements with the class name "star" and store them in the "stars" variable
-const stars = document.querySelectorAll(".star");
+var stars = document.querySelectorAll(".star");
 
 // Iterate through each star element
 stars.forEach((star, index) => {
     // Add a click event listener to the current star
     star.addEventListener("click", () => {
         // Fill in clicked star and stars before it
-        for (let i = 0; i <= index; i++) {
+        for (let i = 1; i <= index+1; i++) {
             // Change the text content of stars to 'star' (filled)
-            document.getElementById(`star${i + 1}`).textContent = "star";
+            document.getElementById(`star${i}`).textContent = "star";
+        }
+        for (let i=index+2; i <= stars.length; i++) {
+            document.getElementById(`star${i}`).textContent = "star_outline";
         }
     });
 });
@@ -44,8 +47,6 @@ function writeReview() {
 
     // Get the star rating
     // Get all the elements with the class "star" and store them in the 'stars' variable
-    const stars = document.querySelectorAll(".star");
-    // Initialize a variable 'hikeRating' to keep track of the rating count
     let hikeRating = 0;
     // Iterate through each element in the 'stars' NodeList using the forEach method
     stars.forEach((star) => {
